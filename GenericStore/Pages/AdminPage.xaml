@@ -23,8 +23,6 @@
                 <Button Content="Пользователи" Height="38" Margin="0,0,0,18" Click="UsersButton_Click"/>
 
                 <Border BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="0,1,0,0" Margin="0,4,0,18"/>
-
-                <TextBlock Text="Заказы и города редактируются только напрямую в базе данных." Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" Margin="0,0,0,18"/>
                 <Button x:Name="GoToCatalogButton" Content="Назад к каталогу" Height="38" Click="GoToCatalogButton_Click" Background="#666666"/>
             </StackPanel>
         </Border>

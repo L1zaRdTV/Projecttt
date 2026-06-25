@@ -26,6 +26,8 @@ namespace GenericStore.AppData
 
         public static Baskets GetOrCreateCurrentBasket()
         {
+            EnsureMoneyColumnsPrecision();
+
             if (!IsUserAuthorized())
             {
                 throw new InvalidOperationException("Пользователь не авторизован.");
@@ -125,6 +127,7 @@ namespace GenericStore.AppData
 
             int basketId = item.IdBasket;
             AppConnect.model0db.BasketsCatalogs.Remove(item);
+            AppConnect.model0db.SaveChanges();
             RecalculateBasketTotal(basketId);
             AppConnect.model0db.SaveChanges();
         }
@@ -168,6 +171,20 @@ namespace GenericStore.AppData
                 .Sum();
 
             basket.TotalPrice = NormalizeMoney(total);
+        }
+
+        public static void EnsureMoneyColumnsPrecision()
+        {
+            try
+            {
+                AppConnect.model0db.Database.ExecuteSqlCommand(
+                    "IF COL_LENGTH('dbo.Orders', 'Price') IS NOT NULL ALTER TABLE dbo.Orders ALTER COLUMN Price decimal(10,2) NOT NULL; " +
+                    "IF COL_LENGTH('dbo.Baskets', 'TotalPrice') IS NOT NULL ALTER TABLE dbo.Baskets ALTER COLUMN TotalPrice decimal(10,2) NOT NULL;");
+            }
+            catch
+            {
+                // If the application is not connected to SQL Server yet, the normal EF error handling will show the real problem later.
+            }
         }
 
         public static decimal NormalizeMoney(decimal value)

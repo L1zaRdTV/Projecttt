@@ -140,7 +140,7 @@ CREATE TABLE [dbo].[Orders] (
     [IdUser] int  NOT NULL,
     [IdStatusOrder] int  NOT NULL,
     [Data] datetime  NOT NULL,
-    [Price] decimal(5,2)  NOT NULL
+    [Price] decimal(10,2)  NOT NULL
 );
 GO
 
