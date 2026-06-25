@@ -43,9 +43,10 @@ namespace GenericStore.Pages
 
         private bool ValidateForm()
         {
-            if (AppConnect.model0db.Catalogs.Count(x => x.Product == ProductNameBox.Text) > 0)
+            if (_selectedProduct == null && AppConnect.model0db.Catalogs.Count(x => x.Product == ProductNameBox.Text) > 0)
             {
                 MessageBox.Show("Товар с таким названием уже существует!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
 
             if (string.IsNullOrWhiteSpace(ProductNameBox.Text))
@@ -63,11 +64,13 @@ namespace GenericStore.Pages
             if (string.IsNullOrWhiteSpace(DescriptionBox.Text))
             {
                 MessageBox.Show("Введите описание товара", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
 
             if (DescriptionBox.Text.Length > 1000)
             {
                 MessageBox.Show("Описание товара не может быть больше 1000 символов", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
 
             if (!decimal.TryParse(PriceBox.Text, out var price) || price <= 0)
@@ -122,7 +125,7 @@ namespace GenericStore.Pages
             }
 
             _selectedProduct.Product = ProductNameBox.Text.Trim();
-            _selectedProduct.IdCategory = CategoryBox.SelectedIndex;
+            _selectedProduct.IdCategory = (int)CategoryBox.SelectedValue;
             _selectedProduct.Price = decimal.Parse(PriceBox.Text);
             _selectedProduct.Descripton = DescriptionBox.Text.Trim();
             _selectedProduct.PhotoPath = PhotoPathBox.Text.Trim();

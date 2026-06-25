@@ -99,7 +99,7 @@ namespace GenericStore.Pages
                 {
                     NameUser = LoginBox.Text,
                     Password = PassBox.Password,
-                    IdRole = 1,
+                    IdRole = 2,
                     IdCity = (int)CityBox.SelectedValue,
                     Email = EmailBox.Text
                 };

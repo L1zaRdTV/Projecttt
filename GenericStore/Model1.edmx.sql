@@ -404,7 +404,7 @@ GO
 SET IDENTITY_INSERT [dbo].[Roles] ON;
 INSERT INTO [dbo].[Roles] ([IdRole], [NameRole]) VALUES
     (1, N'Администратор'),
-    (2, N'Пользователь');
+    (2, N'Клиент');
 SET IDENTITY_INSERT [dbo].[Roles] OFF;
 GO
 

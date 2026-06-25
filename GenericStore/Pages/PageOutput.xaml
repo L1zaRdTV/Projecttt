@@ -14,11 +14,7 @@
             <ComboBox x:Name="ComboSort" Margin="5" VerticalAlignment="Top" Width="120" Height="26" SelectionChanged="ComboSort_SelectionChanged" FontFamily="Segoe UI"/>
             <TextBox x:Name="TextSearch"  Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="186" Height="26" TextChanged="TextSearch_TextChanged" FontFamily="Segoe UI" TabIndex="100" MaxLength="100" ToolTip="Поиск..."/>
             <Button x:Name="AddProductsButton" Content="Панель администратора" Height="30" Width="200" Click="AddProductsButton_Click" Loaded="AddProductsButton_Loaded" FontFamily="Segoe UI" Foreground="White" Background="#2563EB" />
-            <Button x:Name="GoToBasketButton" Margin="5,0,0,0" Height="30" Width="50" FontFamily="Segoe UI" Foreground="White" Click="GoToBasketButton_Click_1" RenderTransformOrigin="0.383,0.891" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Pages/free-icon-shopping-cart-5087816.png" TileMode="None" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
+            <Button x:Name="GoToBasketButton" Content="Корзина" Margin="5,0,0,0" Height="30" Width="90" FontFamily="Segoe UI" Foreground="White" Background="#2563EB" Click="GoToBasketButton_Click_1" RenderTransformOrigin="0.383,0.891" />
         </StackPanel>
 
         <ListView x:Name="ListProducts" Margin="0,64,0,79">
