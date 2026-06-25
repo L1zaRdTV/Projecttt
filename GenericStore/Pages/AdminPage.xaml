@@ -9,11 +9,11 @@
 
     <Grid Background="{StaticResource AppBackgroundBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="210" MinWidth="170"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Margin="14" Padding="16" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
+        <Border Margin="8" Padding="12" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
             <StackPanel>
                 <TextBlock Text="Панель администратора" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,6"/>
                 <TextBlock Text="Управление товарами, категориями и пользователями" Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" Margin="0,0,0,22"/>
@@ -27,7 +27,7 @@
             </StackPanel>
         </Border>
 
-        <Border Grid.Column="1" Margin="0,14,14,14" Padding="14" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
+        <Border Grid.Column="1" Margin="0,8,8,8" Padding="10" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
             <Frame x:Name="AdminContentFrame" NavigationUIVisibility="Hidden"/>
         </Border>
     </Grid>
