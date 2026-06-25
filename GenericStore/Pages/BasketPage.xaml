@@ -8,14 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BasketPage">
 
-    <Grid Background="#FF420046" Margin="10">
+    <Grid Background="#F6F7FB" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Корзина" FontFamily="Arial Black" FontSize="22" Foreground="White" Margin="5"/>
+        <TextBlock Text="Корзина" FontFamily="Segoe UI" FontSize="22" Foreground="White" Margin="5"/>
 
         <DataGrid x:Name="BasketGrid"
                   Grid.Row="1"
@@ -24,7 +24,7 @@
                   IsReadOnly="True"
                   CanUserAddRows="False"
                   HeadersVisibility="Column"
-                  Background="White" FontFamily="Arial Black">
+                  Background="White" FontFamily="Segoe UI">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Товар" Width="*" Binding="{Binding ProductName}"/>
                 <DataGridTextColumn Header="Цена, ₽" Width="120" Binding="{Binding Price, StringFormat=N2}"/>
@@ -36,9 +36,9 @@
                             <Button Content="Удалить"
                                     Width="110"
                                     Height="26"
-                                    FontFamily="Arial Black"
-                                    Foreground="Black"
-                                    Background="#FFE0C14D"
+                                    FontFamily="Segoe UI"
+                                    Foreground="White"
+                                    Background="#2563EB"
                                     Click="RemoveItemButton_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -50,28 +50,28 @@
             <Button x:Name="GoToCatalogButton" Content="Вернуться в каталог"
                     Width="190"
                     Height="32"
-                    FontFamily="Arial Black"
-                    Foreground="Black"
-                    Background="#FFE0C14D"
+                    FontFamily="Segoe UI"
+                    Foreground="White"
+                    Background="#2563EB"
                     Click="GoToCatalogButton_Click"
                     DockPanel.Dock="Left"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock x:Name="TotalTextBlock" FontFamily="Arial Black" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="16"/>
+                <TextBlock x:Name="TotalTextBlock" FontFamily="Segoe UI" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="16"/>
                 <Button Content="Очистить корзину"
                         Width="150"
                         Height="32"
                         Margin="0,0,10,0"
-                        FontFamily="Arial Black"
-                        Foreground="Black"
-                        Background="#FFE0C14D"
+                        FontFamily="Segoe UI"
+                        Foreground="White"
+                        Background="#2563EB"
                         Click="ClearBasketButton_Click"/>
                 <Button Content="Оформить заказ"
                         Width="150"
                         Height="32"
-                        FontFamily="Arial Black"
-                        Foreground="Black"
-                        Background="#FFE0C14D"
+                        FontFamily="Segoe UI"
+                        Foreground="White"
+                        Background="#2563EB"
                         Click="CheckoutButton_Click"/>
             </StackPanel>
         </DockPanel>

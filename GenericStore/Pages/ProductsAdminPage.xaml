@@ -7,14 +7,14 @@
       d:DesignHeight="400" d:DesignWidth="760"
       Title="ProductsAdminPage">
 
-    <Grid Background="#FF420046" Margin="0">
+    <Grid Background="#F6F7FB" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <DataGrid x:Name="ProductsGrid" Grid.Row="0" Margin="0,0,0,10" AutoGenerateColumns="False" IsReadOnly="True"
-                  SelectionChanged="ProductsGrid_SelectionChanged" FontFamily="Arial Black">
+                  SelectionChanged="ProductsGrid_SelectionChanged" FontFamily="Segoe UI">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdCatalog}" Width="60"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Product}" Width="*"/>
@@ -32,8 +32,8 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Vertical" Margin="0,0,10,0">
-                <TextBlock Text="Название товара" Foreground="#FF82DBFF" FontFamily="Arial Black"/>
-                <TextBox x:Name="ProductNameBox" Height="28" Margin="0,4,0,8" FontFamily="Arial Black" TabIndex="100" MaxLength="100" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBlock Text="Название товара" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <TextBox x:Name="ProductNameBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" TabIndex="100" MaxLength="100" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -41,14 +41,14 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBlock Text="Категория" Foreground="#FF82DBFF" FontFamily="Arial Black"/>
-                <ComboBox x:Name="CategoryBox" Height="28" Margin="0,4,0,8" DisplayMemberPath="NameCategory" SelectedValuePath="IdCategory" FontFamily="Arial Black">
+                <TextBlock Text="Категория" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <ComboBox x:Name="CategoryBox" Height="28" Margin="0,4,0,8" DisplayMemberPath="NameCategory" SelectedValuePath="IdCategory" FontFamily="Segoe UI">
                     <ComboBox.Resources>
                         <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="Background" Value="#FF91009A"/>
-                            <Setter Property="BorderBrush" Value="#FFE0C14D"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderBrush" Value="#D1D5DB"/>
                             <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="Foreground" Value="#FF82DBFF"/>
+                            <Setter Property="Foreground" Value="#1F2937"/>
                             <Setter Property="Padding" Value="8,4"/>
                             <Setter Property="OverridesDefaultStyle" Value="True"/>
                             <Setter Property="Template">
@@ -72,7 +72,7 @@
                       BorderThickness="0"
                       IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                                                         <Path Data="M 0 0 L 4 4 L 8 0 Z"
-                  Fill="White"
+                  Fill="#374151"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"/>
                                                     </ToggleButton>
@@ -110,8 +110,8 @@
                     </ComboBox.Resources>
                 </ComboBox>
 
-                <TextBlock Text="Цена" Foreground="#FF82DBFF" FontFamily="Arial Black"/>
-                <TextBox x:Name="PriceBox" Height="28" Margin="0,4,0,8" FontFamily="Arial Black" TabIndex="50" MaxLength="50" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBlock Text="Цена" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <TextBox x:Name="PriceBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" TabIndex="50" MaxLength="50" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -119,8 +119,8 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBlock Text="Описание" Foreground="#FF82DBFF" FontFamily="Arial Black"/>
-                <TextBox x:Name="DescriptionBox" Height="60" Margin="0,4,0,8" TextWrapping="Wrap" AcceptsReturn="True" FontFamily="Arial Black" TabIndex="1000" MaxLength="1000" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBlock Text="Описание" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <TextBox x:Name="DescriptionBox" Height="60" Margin="0,4,0,8" TextWrapping="Wrap" AcceptsReturn="True" FontFamily="Segoe UI" TabIndex="1000" MaxLength="1000" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -128,8 +128,8 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBlock Text="Путь к изображению" Foreground="#FF82DBFF" FontFamily="Arial Black"/>
-                <TextBox x:Name="PhotoPathBox" Height="28" Margin="0,4,0,8" FontFamily="Arial Black" GotFocus="PhotoPathBox_GotFocus" TabIndex="100" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBlock Text="Путь к изображению" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <TextBox x:Name="PhotoPathBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" GotFocus="PhotoPathBox_GotFocus" TabIndex="100" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -140,11 +140,11 @@
 
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,10,0">
                 <Button Content="Добавить" Width="150" Height="34" Margin="0,0,0,8" Click="AddButton_Click"
-                        FontFamily="Arial Black" Foreground="Black" Background="#FFE0C14D"/>
+                        FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
                 <Button Content="Сохранить" Width="150" Height="34" Margin="0,0,0,8" Click="EditButton_Click"
-                        FontFamily="Arial Black" Foreground="Black" Background="#FFE0C14D"/>
+                        FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
                 <Button Content="Удалить" Width="150" Height="34" Margin="0,0,0,8" Click="DeleteButton_Click"
-                        FontFamily="Arial Black" Foreground="Black" Background="#FFE0C14D"/>
+                        FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
             </StackPanel>
         </Grid>
     </Grid>

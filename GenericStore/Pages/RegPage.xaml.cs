@@ -31,12 +31,15 @@ namespace GenericStore.Pages
 
         public void Fill()
         {
-            CityBox.SelectedIndex = 0;
-            var city = AppConnect.model0db.Cities;
-            CityBox.Items.Add("Город");
-            foreach (var item in city)
+            try
             {
-                CityBox.Items.Add(item.NameCity);
+                CityBox.ItemsSource = AppConnect.model0db.Cities.OrderBy(x => x.NameCity).ToList();
+                CityBox.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось загрузить список городов. Проверьте, что база данных создана из актуального скрипта.\n" + ex.Message,
+                    "Ошибка загрузки данных", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -86,7 +89,7 @@ namespace GenericStore.Pages
                     return;
                 }
 
-                if (CityBox.SelectedIndex == 0)
+                if (CityBox.SelectedValue == null)
                 {
                     MessageBox.Show("Выберите город", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
@@ -97,7 +100,7 @@ namespace GenericStore.Pages
                     NameUser = LoginBox.Text,
                     Password = PassBox.Password,
                     IdRole = 1,
-                    IdCity = CityBox.SelectedIndex,
+                    IdCity = (int)CityBox.SelectedValue,
                     Email = EmailBox.Text
                 };
                 AppConnect.model0db.Users.Add(userobj);
@@ -105,9 +108,9 @@ namespace GenericStore.Pages
                 MessageBox.Show("Данные успешно добавлены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 AppData.AppFrame.framemain.GoBack();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка при добавлении данных!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ошибка при добавлении данных!\n" + ex.Message, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
