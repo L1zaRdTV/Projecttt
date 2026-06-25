@@ -7,26 +7,30 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminPage">
 
-    <Grid Background="#F6F7FB">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid Background="{StaticResource AppBackgroundBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <Button Content="Товары" Width="120" Height="32" Margin="0,0,8,0" Click="ProductsButton_Click"
-                    FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
-            <Button Content="Категории" Width="120" Height="32" Margin="0,0,8,0" Click="CategoriesButton_Click"
-                    FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
-            <Button Content="Заказы" Width="120" Height="32" Margin="0,0,8,0" Click="OrdersButton_Click"
-                    FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
-            <Button Content="Пользователи" Width="140" Height="32" Margin="0,0,8,0" Click="UsersButton_Click"
-                    FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
-            <Button x:Name="CitiesButton" Content="Города" Width="140" Height="32" Margin="0,0,8,0" Click="CitiesButton_Click"
-                    FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
-            <Button x:Name="GoToCatalogButton" Content="Назад к каталогу" Width="140" Height="32" Margin="0,0,8,0" FontFamily="Segoe UI" Foreground="White" Background="#2563EB" Click="GoToCatalogButton_Click"/>
-        </StackPanel>
+        <Border Margin="14" Padding="16" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Панель администратора" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,6"/>
+                <TextBlock Text="Управление товарами, категориями и пользователями" Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" Margin="0,0,0,22"/>
 
-        <Frame x:Name="AdminContentFrame" Grid.Row="1" Margin="10" NavigationUIVisibility="Hidden"/>
+                <Button Content="Товары" Height="38" Margin="0,0,0,10" Click="ProductsButton_Click"/>
+                <Button Content="Категории" Height="38" Margin="0,0,0,10" Click="CategoriesButton_Click"/>
+                <Button Content="Пользователи" Height="38" Margin="0,0,0,18" Click="UsersButton_Click"/>
+
+                <Border BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="0,1,0,0" Margin="0,4,0,18"/>
+
+                <TextBlock Text="Заказы и города редактируются только напрямую в базе данных." Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" Margin="0,0,0,18"/>
+                <Button x:Name="GoToCatalogButton" Content="Назад к каталогу" Height="38" Click="GoToCatalogButton_Click" Background="#666666"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Margin="0,14,14,14" Padding="14" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
+            <Frame x:Name="AdminContentFrame" NavigationUIVisibility="Hidden"/>
+        </Border>
     </Grid>
 </Page>

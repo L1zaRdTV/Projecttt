@@ -7,7 +7,7 @@
       d:DesignHeight="400" d:DesignWidth="760"
       Title="ProductsAdminPage">
 
-    <Grid Background="#F6F7FB" Margin="0">
+    <Grid Background="#F4F4F2" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -32,8 +32,8 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Vertical" Margin="0,0,10,0">
-                <TextBlock Text="Название товара" Foreground="#1F2937" FontFamily="Segoe UI"/>
-                <TextBox x:Name="ProductNameBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" TabIndex="100" MaxLength="100" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
+                <TextBlock Text="Название товара" Foreground="#242424" FontFamily="Segoe UI"/>
+                <TextBox x:Name="ProductNameBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" TabIndex="100" MaxLength="100" Background="White" BorderBrush="#D6D3CE" Foreground="#242424">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -41,14 +41,14 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBlock Text="Категория" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <TextBlock Text="Категория" Foreground="#242424" FontFamily="Segoe UI"/>
                 <ComboBox x:Name="CategoryBox" Height="28" Margin="0,4,0,8" DisplayMemberPath="NameCategory" SelectedValuePath="IdCategory" FontFamily="Segoe UI">
                     <ComboBox.Resources>
                         <Style TargetType="{x:Type ComboBox}">
                             <Setter Property="Background" Value="White"/>
-                            <Setter Property="BorderBrush" Value="#D1D5DB"/>
+                            <Setter Property="BorderBrush" Value="#D6D3CE"/>
                             <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="Foreground" Value="#1F2937"/>
+                            <Setter Property="Foreground" Value="#242424"/>
                             <Setter Property="Padding" Value="8,4"/>
                             <Setter Property="OverridesDefaultStyle" Value="True"/>
                             <Setter Property="Template">
@@ -97,7 +97,7 @@
 
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="Bd" Property="BorderBrush" Value="#FFEFD36B"/>
+                                                <Setter TargetName="Bd" Property="BorderBrush" Value="#9CA3AF"/>
                                             </Trigger>
                                             <Trigger Property="IsEnabled" Value="False">
                                                 <Setter TargetName="Bd" Property="Opacity" Value="0.5"/>
@@ -110,8 +110,8 @@
                     </ComboBox.Resources>
                 </ComboBox>
 
-                <TextBlock Text="Цена" Foreground="#1F2937" FontFamily="Segoe UI"/>
-                <TextBox x:Name="PriceBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" TabIndex="50" MaxLength="50" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
+                <TextBlock Text="Цена" Foreground="#242424" FontFamily="Segoe UI"/>
+                <TextBox x:Name="PriceBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" TabIndex="50" MaxLength="50" Background="White" BorderBrush="#D6D3CE" Foreground="#242424">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -119,8 +119,8 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBlock Text="Описание" Foreground="#1F2937" FontFamily="Segoe UI"/>
-                <TextBox x:Name="DescriptionBox" Height="60" Margin="0,4,0,8" TextWrapping="Wrap" AcceptsReturn="True" FontFamily="Segoe UI" TabIndex="1000" MaxLength="1000" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
+                <TextBlock Text="Описание" Foreground="#242424" FontFamily="Segoe UI"/>
+                <TextBox x:Name="DescriptionBox" Height="60" Margin="0,4,0,8" TextWrapping="Wrap" AcceptsReturn="True" FontFamily="Segoe UI" TabIndex="1000" MaxLength="1000" Background="White" BorderBrush="#D6D3CE" Foreground="#242424">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -128,8 +128,8 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBlock Text="Путь к изображению" Foreground="#1F2937" FontFamily="Segoe UI"/>
-                <TextBox x:Name="PhotoPathBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" GotFocus="PhotoPathBox_GotFocus" TabIndex="100" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
+                <TextBlock Text="Путь к изображению" Foreground="#242424" FontFamily="Segoe UI"/>
+                <TextBox x:Name="PhotoPathBox" Height="28" Margin="0,4,0,8" FontFamily="Segoe UI" GotFocus="PhotoPathBox_GotFocus" TabIndex="100" Background="White" BorderBrush="#D6D3CE" Foreground="#242424">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -140,11 +140,11 @@
 
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,10,0">
                 <Button Content="Добавить" Width="150" Height="34" Margin="0,0,0,8" Click="AddButton_Click"
-                        FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
+                        FontFamily="Segoe UI" Foreground="White" Background="#4B5563"/>
                 <Button Content="Сохранить" Width="150" Height="34" Margin="0,0,0,8" Click="EditButton_Click"
-                        FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
+                        FontFamily="Segoe UI" Foreground="White" Background="#4B5563"/>
                 <Button Content="Удалить" Width="150" Height="34" Margin="0,0,0,8" Click="DeleteButton_Click"
-                        FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
+                        FontFamily="Segoe UI" Foreground="White" Background="#4B5563"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -12,6 +12,7 @@ namespace GenericStore.Pages
         public AdminPage()
         {
             InitializeComponent();
+            AdminContentFrame.Navigate(new ProductsAdminPage(null));
         }
 
         private void ProductsButton_Click(object sender, RoutedEventArgs e)
@@ -24,10 +25,6 @@ namespace GenericStore.Pages
             AdminContentFrame.Navigate(new CategoriesAdminPage());
         }
 
-        private void OrdersButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdminContentFrame.Navigate(new OrdersAdminPage());
-        }
 
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
@@ -39,9 +36,5 @@ namespace GenericStore.Pages
             AppFrame.framemain.Navigate(new PageOutput());
         }
 
-        private void CitiesButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdminContentFrame.Navigate(new CitiesAdminPage());
-        }
     }
 }

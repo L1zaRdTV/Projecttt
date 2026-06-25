@@ -1,7 +1,7 @@
 <Page x:Class="GenericStore.Pages.ProductDetailsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="ProductDetailsPage" Background="#F6F7FB">
+      Title="ProductDetailsPage" Background="#F4F4F2">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Margin="28">
             <Grid.RowDefinitions>
@@ -10,7 +10,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                <Button Content="← К каталогу" Width="120" Height="36" Click="BackButton_Click" Background="#EEF2FF" Foreground="#1D4ED8" BorderBrush="#C7D2FE"/>
+                <Button Content="← К каталогу" Width="120" Height="36" Click="BackButton_Click" Background="#EEF2FF" Foreground="#374151" BorderBrush="#C7D2FE"/>
                 <TextBlock Text="Карточка товара" Margin="18,4,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827"/>
             </StackPanel>
 
@@ -33,8 +33,8 @@
                         <TextBlock Text="Описание" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
                         <TextBlock Text="{Binding Descripton}" Margin="0,8,0,20" FontSize="15" Foreground="#4B5563" TextWrapping="Wrap" LineHeight="22"/>
                         <TextBlock Text="Цена" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
-                        <TextBlock Text="{Binding Price, StringFormat={}{0:N2} ₽}" Margin="0,6,0,24" FontSize="28" FontWeight="Bold" Foreground="#2563EB"/>
-                        <Button Content="Добавить в корзину" Width="190" Height="42" HorizontalAlignment="Left" Click="AddToBasketButton_Click" Background="#2563EB" Foreground="White" FontWeight="SemiBold" BorderThickness="0"/>
+                        <TextBlock Text="{Binding Price, StringFormat={}{0:N2} ₽}" Margin="0,6,0,24" FontSize="28" FontWeight="Bold" Foreground="#4B5563"/>
+                        <Button Content="Добавить в корзину" Width="190" Height="42" HorizontalAlignment="Left" Click="AddToBasketButton_Click" Background="#4B5563" Foreground="White" FontWeight="SemiBold" BorderThickness="0"/>
                     </StackPanel>
                 </Grid>
             </Border>
