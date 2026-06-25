@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de52abeaee264af2b17646e520330182" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="GenericStoreDbModel.Baskets" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.BasketsCatalogs" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.Catalogs" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.Categories" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.Orders" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.OrdersCatalogs" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.Roles" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.StatusOrders" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.Users" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_Baskets_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_BasketsCatalogs_Baskets1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_BasketsCatalogs_Catalogs1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_Catalogs_Categories1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_OrdersCatalogs_Catalogs1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_Orders_StatusOrders1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_OrdersCatalogs_Orders1" ManuallyRouted="false" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_Users_Roles1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GenericStoreDbModel.Cities" Width="1.5" PointX="0.75" PointY="18.25" />
+        <AssociationConnector Association="GenericStoreDbModel.FK_Users_Cities" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
