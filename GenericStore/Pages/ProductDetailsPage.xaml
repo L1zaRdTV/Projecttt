@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="ProductDetailsPage" Background="#F4F4F2">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="28">
+        <Grid Margin="16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -11,32 +11,27 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
                 <Button Content="← К каталогу" Width="120" Height="36" Click="BackButton_Click" Background="#F1F1F1" Foreground="#374151" BorderBrush="#CFCFCF"/>
-                <TextBlock Text="Карточка товара" Margin="18,4,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827"/>
+                <TextBlock Text="Карточка товара" Margin="18,4,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827" TextWrapping="Wrap"/>
             </StackPanel>
 
-            <Border Grid.Row="1" Background="White" CornerRadius="18" BorderBrush="#E5E7EB" BorderThickness="1" Padding="24">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="360"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border Width="330" Height="330" CornerRadius="16" Background="#F3F4F6" ClipToBounds="True">
+            <Border Grid.Row="1" Background="White" BorderBrush="#E5E7EB" BorderThickness="1" Padding="24">
+                <StackPanel>
+                    <Border MaxWidth="330" Height="330" Background="#F3F4F6" ClipToBounds="True" HorizontalAlignment="Center" Margin="0,0,0,20">
                         <Image Source="{Binding CurrentPhoto}" Stretch="UniformToFill"/>
                     </Border>
 
-                    <StackPanel Grid.Column="1" Margin="28,0,0,0">
+                    <StackPanel>
                         <TextBlock Text="{Binding Product}" FontSize="30" FontWeight="Bold" Foreground="#111827" TextWrapping="Wrap"/>
-                        <Border Margin="0,14,0,18" Padding="10,6" Background="#F1F1F1" CornerRadius="12" HorizontalAlignment="Left">
+                        <Border Margin="0,14,0,18" Padding="10,6" Background="#F1F1F1" HorizontalAlignment="Left">
                             <TextBlock Foreground="#555555" FontWeight="SemiBold" Text="{Binding Categories.NameCategory}"/>
                         </Border>
                         <TextBlock Text="Описание" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
                         <TextBlock Text="{Binding Descripton}" Margin="0,8,0,20" FontSize="15" Foreground="#4B5563" TextWrapping="Wrap" LineHeight="22"/>
                         <TextBlock Text="Цена" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
                         <TextBlock Text="{Binding Price, StringFormat={}{0:N2} ₽}" Margin="0,6,0,24" FontSize="28" FontWeight="Bold" Foreground="#4B5563"/>
-                        <Button Content="Добавить в корзину" Width="190" Height="42" HorizontalAlignment="Left" Click="AddToBasketButton_Click" Background="#4B5563" Foreground="White" FontWeight="SemiBold" BorderThickness="0"/>
+                        <Button Content="Добавить в корзину" MinWidth="190" Height="42" HorizontalAlignment="Left" Click="AddToBasketButton_Click" Background="#4B5563" Foreground="White" FontWeight="SemiBold" BorderThickness="0"/>
                     </StackPanel>
-                </Grid>
+                </StackPanel>
             </Border>
         </Grid>
     </ScrollViewer>

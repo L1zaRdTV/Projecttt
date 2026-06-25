@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenericStore"
         mc:Ignorable="d"
-        Title="Универсальный магазин" Height="640" Width="1040" MinWidth="1000" MinHeight="560"
+        Title="Универсальный магазин" Height="640" Width="1040" MinWidth="420" MinHeight="360"
         Background="#F4F4F2" WindowStartupLocation="CenterScreen">
-    <Border Margin="18" Background="White" BorderBrush="#E5E7EB" BorderThickness="1">
+    <Border Margin="8" Background="White" BorderBrush="#E5E7EB" BorderThickness="1">
         <Frame x:Name="Mainframe" NavigationUIVisibility="Hidden"/>
     </Border>
 </Window>
