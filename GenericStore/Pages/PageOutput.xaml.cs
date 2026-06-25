@@ -2,7 +2,6 @@ using GenericStore.AppData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,7 +10,6 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -26,23 +24,24 @@ namespace GenericStore.Pages
         public PageOutput()
         {
             InitializeComponent();
-            ListProducts.ItemsSource = AppConnect.model0db.Catalogs.ToList();
             Fill();
+            ListProducts.ItemsSource = CatalogsList();
         }
 
         public void Fill()
         {
-            ComboSort.Items.Add("Цена");
-            ComboSort.Items.Add("По возрастанию цены");
-            ComboSort.Items.Add("По убыванию цены");
+            ComboSort.Items.Add("Без сортировки");
+            ComboSort.Items.Add("По возрастанию");
+            ComboSort.Items.Add("По убыванию");
             ComboSort.SelectedIndex = 0;
-            ComboFilter.SelectedIndex = 0;
-            var category = AppConnect.model0db.Categories;
-            ComboFilter.Items.Add("Категория");
-            foreach (var item in category)
+
+            ComboFilter.DisplayMemberPath = "NameCategory";
+            ComboFilter.Items.Add(new Categories { IdCategory = 0, NameCategory = "Все категории" });
+            foreach (var item in AppConnect.model0db.Categories.OrderBy(x => x.NameCategory))
             {
-                ComboFilter.Items.Add(item.NameCategory);
+                ComboFilter.Items.Add(item);
             }
+            ComboFilter.SelectedIndex = 0;
         }
 
         Catalogs[] CatalogsList()
@@ -55,23 +54,9 @@ namespace GenericStore.Pages
                     catalogs = catalogs.Where(x => x.Product.ToLower().Contains(TextSearch.Text.ToLower())).ToList();
                 }
 
-                if (ComboFilter.SelectedIndex > 0)
+                if (ComboFilter.SelectedItem is Categories selectedCategory && selectedCategory.IdCategory > 0)
                 {
-                    switch (ComboFilter.SelectedIndex)
-                    {
-                        case 1:
-                            catalogs = catalogs.Where(x => x.IdCategory == 1).ToList();
-                            break;
-                        case 2:
-                            catalogs = catalogs.Where(x => x.IdCategory == 2).ToList();
-                            break;
-                        case 3:
-                            catalogs = catalogs.Where(x => x.IdCategory == 3).ToList();
-                            break;
-                        case 4:
-                            catalogs = catalogs.Where(x => x.IdCategory == 4).ToList();
-                            break;
-                    }
+                    catalogs = catalogs.Where(x => x.IdCategory == selectedCategory.IdCategory).ToList();
                 }
                 if (ComboSort.SelectedIndex > 0)
                 {
@@ -163,6 +148,19 @@ namespace GenericStore.Pages
         private void GoToBasketButton_Click_1(object sender, RoutedEventArgs e)
         {
             AppFrame.framemain.Navigate(new BasketPage());
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.framemain.Navigate(new ProfilePage());
+        }
+
+        private void ListProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (ListProducts.SelectedItem is Catalogs selectedProduct)
+            {
+                AppFrame.framemain.Navigate(new ProductDetailsPage(selectedProduct));
+            }
         }
     }
 }

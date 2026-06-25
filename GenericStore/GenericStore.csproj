@@ -132,6 +132,12 @@
     <Compile Include="Pages\OrdersAdminPage.xaml.cs">
       <DependentUpon>OrdersAdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ProductDetailsPage.xaml.cs">
+      <DependentUpon>ProductDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductsAdminPage.xaml.cs">
       <DependentUpon>ProductsAdminPage.xaml</DependentUpon>
     </Compile>
@@ -200,6 +206,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ProductDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProductsAdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,7 +265,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pages\free-icon-shopping-cart-5087816.png" />
     <Resource Include="Images\free-icon-shopping-cart-5087816.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
