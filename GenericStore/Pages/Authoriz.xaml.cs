@@ -50,7 +50,8 @@ namespace GenericStore.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка" + ex.Message.ToString(), "Критическая ошибка приложения", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Не удалось выполнить авторизацию. Проверьте подключение к базе данных и актуальность схемы.\n" + ex.Message,
+                    "Критическая ошибка приложения", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

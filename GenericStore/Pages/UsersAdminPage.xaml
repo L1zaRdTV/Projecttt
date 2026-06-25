@@ -5,9 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="1000"
       Title="UsersAdminPage">
-    <Grid Background="#FF420046">
+    <Grid Background="#F6F7FB">
         <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" SelectionChanged="UsersGrid_SelectionChanged" FontFamily="Arial Black" IsReadOnly="True">
+        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" SelectionChanged="UsersGrid_SelectionChanged" FontFamily="Segoe UI" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdUser}" Width="70"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding NameUser}" Width="*"/>
@@ -23,41 +23,41 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,0">
-                <Label Content="Логин" Foreground="#FF82DBFF" FontFamily="Arial Black"/>
-                <Label Content="Почта" Foreground="#FF82DBFF" FontFamily="Arial Black" Margin="100,0,0,0"/>
-                <Label Content="Пароль" Foreground="#FF82DBFF" FontFamily="Arial Black" Margin="180,0,0,0"/>
-                <Label Content="Роль" Foreground="#FF82DBFF" FontFamily="Arial Black" Margin="68,0,0,0"/>
-                <Label Content="Город" Foreground="#FF82DBFF" FontFamily="Arial Black" Margin="115,0,0,0"/>
+                <Label Content="Логин" Foreground="#1F2937" FontFamily="Segoe UI"/>
+                <Label Content="Почта" Foreground="#1F2937" FontFamily="Segoe UI" Margin="100,0,0,0"/>
+                <Label Content="Пароль" Foreground="#1F2937" FontFamily="Segoe UI" Margin="180,0,0,0"/>
+                <Label Content="Роль" Foreground="#1F2937" FontFamily="Segoe UI" Margin="68,0,0,0"/>
+                <Label Content="Город" Foreground="#1F2937" FontFamily="Segoe UI" Margin="115,0,0,0"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
-                <TextBox x:Name="UserNameBox" Width="150" Height="30" Margin="0,0,8,0" FontFamily="Arial Black" TabIndex="50" ToolTip="Логин" MaxLength="50" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBox x:Name="UserNameBox" Width="150" Height="30" Margin="0,0,8,0" FontFamily="Segoe UI" TabIndex="50" ToolTip="Логин" MaxLength="50" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBox x:Name="EmailBox" Width="220" Height="30" Margin="0,0,8,0" FontFamily="Arial Black" TabIndex="100" ToolTip="Почта" MaxLength="100" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBox x:Name="EmailBox" Width="220" Height="30" Margin="0,0,8,0" FontFamily="Segoe UI" TabIndex="100" ToolTip="Почта" MaxLength="100" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBox x:Name="PasswordBox" Width="120" Height="30" Margin="0,0,8,0" FontFamily="Arial Black" TabIndex="50" ToolTip="Пароль" MaxLength="50" Background="#FF91009A" BorderBrush="#FFE0C14D" Foreground="#FF82DBFF">
+                <TextBox x:Name="PasswordBox" Width="120" Height="30" Margin="0,0,8,0" FontFamily="Segoe UI" TabIndex="50" ToolTip="Пароль" MaxLength="50" Background="White" BorderBrush="#D1D5DB" Foreground="#1F2937">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <ComboBox x:Name="RoleBox" Width="150" Height="30" Margin="0,0,8,0" DisplayMemberPath="NameRole" SelectedValuePath="IdRole" FontFamily="Arial Black">
+                <ComboBox x:Name="RoleBox" Width="150" Height="30" Margin="0,0,8,0" DisplayMemberPath="NameRole" SelectedValuePath="IdRole" FontFamily="Segoe UI">
                     <ComboBox.Resources>
                         <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="Background" Value="#FF91009A"/>
-                            <Setter Property="BorderBrush" Value="#FFE0C14D"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderBrush" Value="#D1D5DB"/>
                             <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="Foreground" Value="#FF82DBFF"/>
+                            <Setter Property="Foreground" Value="#1F2937"/>
                             <Setter Property="Padding" Value="8,4"/>
                             <Setter Property="OverridesDefaultStyle" Value="True"/>
                             <Setter Property="Template">
@@ -81,7 +81,7 @@
                       BorderThickness="0"
                       IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                                                         <Path Data="M 0 0 L 4 4 L 8 0 Z"
-                  Fill="White"
+                  Fill="#374151"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"/>
                                                     </ToggleButton>
@@ -118,13 +118,13 @@
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
-                <ComboBox x:Name="CityBox" Width="150" Height="30" Margin="0,0,8,0" DisplayMemberPath="NameCity" SelectedValuePath="IdCity" FontFamily="Arial Black">
+                <ComboBox x:Name="CityBox" Width="150" Height="30" Margin="0,0,8,0" DisplayMemberPath="NameCity" SelectedValuePath="IdCity" FontFamily="Segoe UI">
                     <ComboBox.Resources>
                         <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="Background" Value="#FF91009A"/>
-                            <Setter Property="BorderBrush" Value="#FFE0C14D"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderBrush" Value="#D1D5DB"/>
                             <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="Foreground" Value="#FF82DBFF"/>
+                            <Setter Property="Foreground" Value="#1F2937"/>
                             <Setter Property="Padding" Value="8,4"/>
                             <Setter Property="OverridesDefaultStyle" Value="True"/>
                             <Setter Property="Template">
@@ -148,7 +148,7 @@
                       BorderThickness="0"
                       IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                                                         <Path Data="M 0 0 L 4 4 L 8 0 Z"
-                  Fill="White"
+                  Fill="#374151"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"/>
                                                     </ToggleButton>
@@ -185,8 +185,8 @@
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
-                <Button Content="Сохранить" Width="100" Height="30" Margin="0,0,8,0" Click="EditButton_Click" FontFamily="Arial Black" Foreground="Black" Background="#FFE0C14D"/>
-                <Button Content="Удалить" Width="100" Height="30" Margin="0,0,8,0" Click="DeleteButton_Click" FontFamily="Arial Black" Foreground="Black" Background="#FFE0C14D"/>
+                <Button Content="Сохранить" Width="100" Height="30" Margin="0,0,8,0" Click="EditButton_Click" FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
+                <Button Content="Удалить" Width="100" Height="30" Margin="0,0,8,0" Click="DeleteButton_Click" FontFamily="Segoe UI" Foreground="White" Background="#2563EB"/>
             </StackPanel>
         </Grid>
     </Grid>

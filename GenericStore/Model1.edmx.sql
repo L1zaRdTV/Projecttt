@@ -44,6 +44,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Users_Roles1]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_Users_Roles1];
 GO
+IF OBJECT_ID(N'[dbo].[FK_Users_Cities]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_Users_Cities];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -60,6 +63,9 @@ IF OBJECT_ID(N'[dbo].[Catalogs]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Categories]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Categories];
+GO
+IF OBJECT_ID(N'[dbo].[Cities]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cities];
 GO
 IF OBJECT_ID(N'[dbo].[Orders]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Orders];
@@ -121,6 +127,13 @@ CREATE TABLE [dbo].[Categories] (
 );
 GO
 
+-- Creating table 'Cities'
+CREATE TABLE [dbo].[Cities] (
+    [IdCity] int IDENTITY(1,1) NOT NULL,
+    [NameCity] nvarchar(50)  NOT NULL
+);
+GO
+
 -- Creating table 'Orders'
 CREATE TABLE [dbo].[Orders] (
     [IdOrder] int IDENTITY(1,1) NOT NULL,
@@ -170,7 +183,8 @@ CREATE TABLE [dbo].[Users] (
     [NameUser] nvarchar(50)  NOT NULL,
     [IdRole] int  NOT NULL,
     [Password] nvarchar(50)  NOT NULL,
-    [Email] nvarchar(50)  NOT NULL
+    [Email] nvarchar(50)  NOT NULL,
+    [IdCity] int  NOT NULL
 );
 GO
 
@@ -200,6 +214,12 @@ GO
 ALTER TABLE [dbo].[Categories]
 ADD CONSTRAINT [PK_Categories]
     PRIMARY KEY CLUSTERED ([IdCategory] ASC);
+GO
+
+-- Creating primary key on [IdCity] in table 'Cities'
+ALTER TABLE [dbo].[Cities]
+ADD CONSTRAINT [PK_Cities]
+    PRIMARY KEY CLUSTERED ([IdCity] ASC);
 GO
 
 -- Creating primary key on [IdOrder] in table 'Orders'
@@ -362,6 +382,21 @@ ON [dbo].[Users]
     ([IdRole]);
 GO
 
+-- Creating foreign key on [IdCity] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [FK_Users_Cities]
+    FOREIGN KEY ([IdCity])
+    REFERENCES [dbo].[Cities]
+        ([IdCity])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Users_Cities'
+CREATE INDEX [IX_FK_Users_Cities]
+ON [dbo].[Users]
+    ([IdCity]);
+GO
+
 -- --------------------------------------------------
 -- Seeding baseline data
 -- --------------------------------------------------
@@ -392,6 +427,14 @@ INSERT INTO [dbo].[Categories] ([IdCategory], [NameCategory]) VALUES
 SET IDENTITY_INSERT [dbo].[Categories] OFF;
 GO
 
+SET IDENTITY_INSERT [dbo].[Cities] ON;
+INSERT INTO [dbo].[Cities] ([IdCity], [NameCity]) VALUES
+    (1, N'Москва'),
+    (2, N'Санкт-Петербург'),
+    (3, N'Казань');
+SET IDENTITY_INSERT [dbo].[Cities] OFF;
+GO
+
 SET IDENTITY_INSERT [dbo].[Catalogs] ON;
 INSERT INTO [dbo].[Catalogs] ([IdCatalog], [Product], [Descripton], [PhotoPath], [Price], [IdCategory]) VALUES
     (1, N'Товар 1', N'Базовая позиция каталога для демонстрации приложения.', N'', 1000.00, 1),
@@ -402,9 +445,9 @@ SET IDENTITY_INSERT [dbo].[Catalogs] OFF;
 GO
 
 SET IDENTITY_INSERT [dbo].[Users] ON;
-INSERT INTO [dbo].[Users] ([IdUser], [NameUser], [IdRole], [Password], [Email]) VALUES
-    (1, N'admin', 1, N'admin', N'admin@example.com'),
-    (2, N'user', 2, N'user', N'user@example.com');
+INSERT INTO [dbo].[Users] ([IdUser], [NameUser], [IdRole], [Password], [Email], [IdCity]) VALUES
+    (1, N'admin', 1, N'admin', N'admin@example.com', 1),
+    (2, N'user', 2, N'user', N'user@example.com', 2);
 SET IDENTITY_INSERT [dbo].[Users] OFF;
 GO
 
