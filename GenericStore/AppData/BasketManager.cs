@@ -132,13 +132,23 @@ namespace GenericStore.AppData
         public static void ClearCurrentBasket()
         {
             Baskets basket = GetOrCreateCurrentBasket();
-            List<BasketsCatalogs> items = AppConnect.model0db.BasketsCatalogs.Where(x => x.IdBasket == basket.IdBasket).ToList();
-            if (items.Count == 0)
+            ClearBasketItems(basket.IdBasket);
+        }
+
+        public static void ClearBasketItems(int basketId)
+        {
+            Baskets basket = AppConnect.model0db.Baskets.FirstOrDefault(x => x.IdBasket == basketId);
+            if (basket == null)
             {
                 return;
             }
 
-            AppConnect.model0db.BasketsCatalogs.RemoveRange(items);
+            List<BasketsCatalogs> items = AppConnect.model0db.BasketsCatalogs.Where(x => x.IdBasket == basketId).ToList();
+            if (items.Count > 0)
+            {
+                AppConnect.model0db.BasketsCatalogs.RemoveRange(items);
+            }
+
             basket.TotalPrice = 0m;
             AppConnect.model0db.SaveChanges();
         }
@@ -157,7 +167,23 @@ namespace GenericStore.AppData
                 .DefaultIfEmpty(0m)
                 .Sum();
 
-            basket.TotalPrice = total;
+            basket.TotalPrice = NormalizeMoney(total);
+        }
+
+        public static decimal NormalizeMoney(decimal value)
+        {
+            if (value < 0m)
+            {
+                return 0m;
+            }
+
+            const decimal maxSupportedValue = 99999999.99m;
+            if (value > maxSupportedValue)
+            {
+                return maxSupportedValue;
+            }
+
+            return Math.Round(value, 2);
         }
     }
 }

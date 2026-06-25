@@ -8,14 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BasketPage">
 
-    <Grid Background="#F6F7FB" Margin="10">
+    <Grid Background="{StaticResource AppBackgroundBrush}" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Корзина" FontFamily="Segoe UI" FontSize="22" Foreground="White" Margin="5"/>
+        <TextBlock Text="Корзина" FontFamily="Segoe UI" FontSize="22" Foreground="{StaticResource TextBrush}" Margin="5"/>
 
         <DataGrid x:Name="BasketGrid"
                   Grid.Row="1"
@@ -38,7 +38,7 @@
                                     Height="26"
                                     FontFamily="Segoe UI"
                                     Foreground="White"
-                                    Background="#2563EB"
+                                    Background="{StaticResource PrimaryBrush}"
                                     Click="RemoveItemButton_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -52,26 +52,26 @@
                     Height="32"
                     FontFamily="Segoe UI"
                     Foreground="White"
-                    Background="#2563EB"
+                    Background="{StaticResource PrimaryBrush}"
                     Click="GoToCatalogButton_Click"
                     DockPanel.Dock="Left"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock x:Name="TotalTextBlock" FontFamily="Segoe UI" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="16"/>
+                <TextBlock x:Name="TotalTextBlock" FontFamily="Segoe UI" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="16"/>
                 <Button Content="Очистить корзину"
                         Width="150"
                         Height="32"
                         Margin="0,0,10,0"
                         FontFamily="Segoe UI"
                         Foreground="White"
-                        Background="#2563EB"
+                        Background="{StaticResource PrimaryBrush}"
                         Click="ClearBasketButton_Click"/>
                 <Button Content="Оформить заказ"
                         Width="150"
                         Height="32"
                         FontFamily="Segoe UI"
                         Foreground="White"
-                        Background="#2563EB"
+                        Background="{StaticResource PrimaryBrush}"
                         Click="CheckoutButton_Click"/>
             </StackPanel>
         </DockPanel>

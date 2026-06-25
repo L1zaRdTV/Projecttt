@@ -4,13 +4,13 @@
              xmlns:local="clr-namespace:GenericStore"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="AppBackgroundBrush" Color="#F6F7FB"/>
+        <SolidColorBrush x:Key="AppBackgroundBrush" Color="#F4F4F2"/>
         <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
-        <SolidColorBrush x:Key="PrimaryBrush" Color="#2563EB"/>
-        <SolidColorBrush x:Key="PrimaryHoverBrush" Color="#1D4ED8"/>
-        <SolidColorBrush x:Key="TextBrush" Color="#1F2937"/>
-        <SolidColorBrush x:Key="MutedTextBrush" Color="#6B7280"/>
-        <SolidColorBrush x:Key="BorderBrushSoft" Color="#D1D5DB"/>
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#4B5563"/>
+        <SolidColorBrush x:Key="PrimaryHoverBrush" Color="#374151"/>
+        <SolidColorBrush x:Key="TextBrush" Color="#242424"/>
+        <SolidColorBrush x:Key="MutedTextBrush" Color="#666666"/>
+        <SolidColorBrush x:Key="BorderBrushSoft" Color="#D6D3CE"/>
 
         <Style TargetType="Page">
             <Setter Property="FontFamily" Value="Segoe UI"/>

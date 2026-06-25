@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GenericStore"
         mc:Ignorable="d"
         Title="Универсальный магазин" Height="640" Width="1040" MinWidth="1000" MinHeight="560"
-        Background="#F6F7FB" WindowStartupLocation="CenterScreen">
+        Background="#F4F4F2" WindowStartupLocation="CenterScreen">
     <Border Margin="18" Background="White" BorderBrush="#E5E7EB" BorderThickness="1">
         <Frame x:Name="Mainframe" NavigationUIVisibility="Hidden"/>
     </Border>

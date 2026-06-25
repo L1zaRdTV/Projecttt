@@ -81,7 +81,7 @@ namespace GenericStore.Pages
                 }
 
                 Baskets basket = BasketManager.GetOrCreateCurrentBasket();
-                decimal total = _items.Sum(x => x.PositionTotal);
+                decimal total = BasketManager.NormalizeMoney(_items.Sum(x => x.PositionTotal));
 
                 using (var transaction = AppConnect.model0db.Database.BeginTransaction())
                 {
@@ -113,7 +113,6 @@ namespace GenericStore.Pages
                     transaction.Commit();
 
                     string pdfPath = GenerateAndSaveCheck(order, _items);
-                    BasketManager.ClearCurrentBasket();
 
                     MessageBox.Show($"Заказ №{order.IdOrder} успешно оформлен.\nЧек сохранен: {pdfPath}", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -122,7 +121,7 @@ namespace GenericStore.Pages
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Не удалось оформить заказ: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
