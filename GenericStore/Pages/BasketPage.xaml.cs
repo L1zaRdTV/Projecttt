@@ -80,6 +80,7 @@ namespace GenericStore.Pages
                     return;
                 }
 
+                BasketManager.EnsureMoneyColumnsPrecision();
                 Baskets basket = BasketManager.GetOrCreateCurrentBasket();
                 decimal total = BasketManager.NormalizeMoney(_items.Sum(x => x.PositionTotal));
 
@@ -121,7 +122,7 @@ namespace GenericStore.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось оформить заказ: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не удалось оформить заказ: " + ex.GetBaseException().Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

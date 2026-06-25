@@ -10,7 +10,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                <Button Content="← К каталогу" Width="120" Height="36" Click="BackButton_Click" Background="#EEF2FF" Foreground="#374151" BorderBrush="#C7D2FE"/>
+                <Button Content="← К каталогу" Width="120" Height="36" Click="BackButton_Click" Background="#F1F1F1" Foreground="#374151" BorderBrush="#CFCFCF"/>
                 <TextBlock Text="Карточка товара" Margin="18,4,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827"/>
             </StackPanel>
 
@@ -27,8 +27,8 @@
 
                     <StackPanel Grid.Column="1" Margin="28,0,0,0">
                         <TextBlock Text="{Binding Product}" FontSize="30" FontWeight="Bold" Foreground="#111827" TextWrapping="Wrap"/>
-                        <Border Margin="0,14,0,18" Padding="10,6" Background="#ECFDF5" CornerRadius="12" HorizontalAlignment="Left">
-                            <TextBlock Foreground="#047857" FontWeight="SemiBold" Text="{Binding Categories.NameCategory}"/>
+                        <Border Margin="0,14,0,18" Padding="10,6" Background="#F1F1F1" CornerRadius="12" HorizontalAlignment="Left">
+                            <TextBlock Foreground="#555555" FontWeight="SemiBold" Text="{Binding Categories.NameCategory}"/>
                         </Border>
                         <TextBlock Text="Описание" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
                         <TextBlock Text="{Binding Descripton}" Margin="0,8,0,20" FontSize="15" Foreground="#4B5563" TextWrapping="Wrap" LineHeight="22"/>

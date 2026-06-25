@@ -138,6 +138,9 @@
     <Compile Include="Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ProductEditorWindow.xaml.cs">
+      <DependentUpon>ProductEditorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductsAdminPage.xaml.cs">
       <DependentUpon>ProductsAdminPage.xaml</DependentUpon>
     </Compile>
@@ -211,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

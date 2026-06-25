@@ -8,7 +8,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-            <Button Content="← В магазин" Width="110" Height="36" Click="BackButton_Click" Background="#EEF2FF" Foreground="#374151" BorderBrush="#C7D2FE"/>
+            <Button Content="← В магазин" Width="110" Height="36" Click="BackButton_Click" Background="#F1F1F1" Foreground="#374151" BorderBrush="#CFCFCF"/>
             <TextBlock Text="Профиль пользователя" Margin="18,3,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827"/>
         </StackPanel>
 
