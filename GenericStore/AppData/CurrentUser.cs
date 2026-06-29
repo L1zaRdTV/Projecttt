@@ -9,6 +9,6 @@ namespace GenericStore.AppData
     public class CurrentUser
     {
         public static Users User { get; set; }
-        public static bool IsAdmin => User?.Roles?.IdRole == 1;
+        public static bool IsAdmin => User?.Roles?.NameRole == "Менеджер" || User?.Roles?.IdRole == 1;
     }
 }

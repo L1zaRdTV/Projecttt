@@ -32,7 +32,7 @@ namespace GenericStore
             {
                 if (String.IsNullOrEmpty(PhotoPath) || String.IsNullOrWhiteSpace(PhotoPath))
                 {
-                    return @"/Images/empty.png";
+                    return null;
                 }
                 else
                 {

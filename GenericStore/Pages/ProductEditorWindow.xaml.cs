@@ -17,7 +17,7 @@ namespace GenericStore.Pages
             InitializeComponent();
             _product = product ?? new Catalogs();
             _isNew = product == null;
-            TitleText.Text = _isNew ? "Добавление товара" : "Редактирование товара";
+            TitleText.Text = _isNew ? "Добавление комнаты" : "Редактирование комнаты";
             SaveButton.Content = _isNew ? "Добавить" : "Сохранить";
             CategoryBox.ItemsSource = AppConnect.model0db.Categories.OrderBy(x => x.NameCategory).ToList();
             FillForm();
@@ -35,14 +35,14 @@ namespace GenericStore.Pages
         private bool ValidateForm()
         {
             string name = ProductNameBox.Text.Trim();
-            if (string.IsNullOrWhiteSpace(name)) { MessageBox.Show("Введите название товара"); return false; }
+            if (string.IsNullOrWhiteSpace(name)) { MessageBox.Show("Введите название комнаты"); return false; }
             bool duplicate = AppConnect.model0db.Catalogs.Any(x => x.Product == name && x.IdCatalog != _product.IdCatalog);
-            if (duplicate) { MessageBox.Show("Товар с таким названием уже существует!"); return false; }
-            if (CategoryBox.SelectedValue == null) { MessageBox.Show("Выберите категорию"); return false; }
-            if (string.IsNullOrWhiteSpace(DescriptionBox.Text)) { MessageBox.Show("Введите описание товара"); return false; }
+            if (duplicate) { MessageBox.Show("Комната с таким названием уже существует!"); return false; }
+            if (CategoryBox.SelectedValue == null) { MessageBox.Show("Выберите стиль оформления"); return false; }
+            if (string.IsNullOrWhiteSpace(DescriptionBox.Text)) { MessageBox.Show("Введите описание комнаты"); return false; }
             if (!decimal.TryParse(PriceBox.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out decimal price) || price <= 0m)
             {
-                MessageBox.Show("Цена должна быть числом больше 0"); return false;
+                MessageBox.Show("Стоимость аренды должна быть числом больше 0"); return false;
             }
             if (price > 99999999.99m) { MessageBox.Show("Цена слишком большая"); return false; }
             return true;
@@ -64,7 +64,7 @@ namespace GenericStore.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось сохранить товар: " + ex.GetBaseException().Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не удалось сохранить комнату: " + ex.GetBaseException().Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

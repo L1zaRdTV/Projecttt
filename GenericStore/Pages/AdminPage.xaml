@@ -15,15 +15,15 @@
 
         <Border Margin="8" Padding="12" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1">
             <StackPanel>
-                <TextBlock Text="Панель администратора" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,6"/>
-                <TextBlock Text="Управление товарами, категориями и пользователями" Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" Margin="0,0,0,22"/>
+                <TextBlock Text="Панель менеджера" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,6"/>
+                <TextBlock Text="Управление банкетными комнатами и стилями оформления" Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" Margin="0,0,0,22"/>
 
-                <Button Content="Товары" Height="38" Margin="0,0,0,10" Click="ProductsButton_Click"/>
-                <Button Content="Категории" Height="38" Margin="0,0,0,10" Click="CategoriesButton_Click"/>
+                <Button Content="Комнаты" Height="38" Margin="0,0,0,10" Click="ProductsButton_Click"/>
+                <Button Content="Стили" Height="38" Margin="0,0,0,10" Click="CategoriesButton_Click"/>
                 <Button Content="Пользователи" Height="38" Margin="0,0,0,18" Click="UsersButton_Click"/>
 
                 <Border BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="0,1,0,0" Margin="0,4,0,18"/>
-                <Button x:Name="GoToCatalogButton" Content="Назад к каталогу" Height="38" Click="GoToCatalogButton_Click" Background="#666666"/>
+                <Button x:Name="GoToCatalogButton" Content="Назад к комнатам" Height="38" Click="GoToCatalogButton_Click" Background="#666666"/>
             </StackPanel>
         </Border>
 

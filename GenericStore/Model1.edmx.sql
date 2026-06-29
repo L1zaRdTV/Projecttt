@@ -403,27 +403,24 @@ GO
 
 SET IDENTITY_INSERT [dbo].[Roles] ON;
 INSERT INTO [dbo].[Roles] ([IdRole], [NameRole]) VALUES
-    (1, N'Администратор'),
+    (1, N'Менеджер'),
     (2, N'Клиент');
 SET IDENTITY_INSERT [dbo].[Roles] OFF;
 GO
 
 SET IDENTITY_INSERT [dbo].[StatusOrders] ON;
 INSERT INTO [dbo].[StatusOrders] ([IdStatusOrder], [NameStatusOrder]) VALUES
-    (1, N'Новый'),
-    (2, N'В обработке'),
-    (3, N'Готов'),
-    (4, N'Завершен'),
-    (5, N'Отменен');
+    (1, N'Полная предоплата'),
+    (2, N'Частичная предоплата'),
+    (3, N'Не оплачено');
 SET IDENTITY_INSERT [dbo].[StatusOrders] OFF;
 GO
 
 SET IDENTITY_INSERT [dbo].[Categories] ON;
 INSERT INTO [dbo].[Categories] ([IdCategory], [NameCategory]) VALUES
-    (1, N'Основные товары'),
-    (2, N'Премиум товары'),
-    (3, N'Аксессуары'),
-    (4, N'Услуги');
+    (1, N'Японский стиль'),
+    (2, N'Европейский стиль'),
+    (3, N'Мексиканский стиль');
 SET IDENTITY_INSERT [dbo].[Categories] OFF;
 GO
 
@@ -437,17 +434,18 @@ GO
 
 SET IDENTITY_INSERT [dbo].[Catalogs] ON;
 INSERT INTO [dbo].[Catalogs] ([IdCatalog], [Product], [Descripton], [PhotoPath], [Price], [IdCategory]) VALUES
-    (1, N'Товар 1', N'Базовая позиция каталога для демонстрации приложения.', N'', 1000.00, 1),
-    (2, N'Товар 2', N'Премиальная позиция каталога, которую можно заменить под любую нишу.', N'', 2500.00, 2),
-    (3, N'Дополнительный товар', N'Сопутствующая позиция для расширения ассортимента.', N'', 500.00, 3),
-    (4, N'Базовая услуга', N'Пример услуги, если магазин продает не только физические товары.', N'', 1500.00, 4);
+    (1, N'Красный зал', N'Столов: 100. Уютный зал в японском стиле с лаконичным интерьером и спокойной атмосферой, идеально подходящий для семейных праздников и деловых встреч.', N'', 500.00, 1),
+    (2, N'Зелёный зал', N'Столов: 250. Просторный зал в классическом европейском стиле, отлично подходящий для свадеб, корпоративных мероприятий и крупных торжеств.', N'', 1000.00, 2),
+    (3, N'Жёлтый зал', N'Столов: 160. Яркий зал в мексиканском стиле с тёплой атмосферой и оригинальным оформлением, идеально подходящий для весёлых праздников и тематических мероприятий.', N'', 750.00, 3);
 SET IDENTITY_INSERT [dbo].[Catalogs] OFF;
 GO
 
 SET IDENTITY_INSERT [dbo].[Users] ON;
 INSERT INTO [dbo].[Users] ([IdUser], [NameUser], [IdRole], [Password], [Email], [IdCity]) VALUES
-    (1, N'admin', 1, N'admin', N'admin@example.com', 1),
-    (2, N'user', 2, N'user', N'user@example.com', 2);
+    (1, N'manager', 1, N'manager', N'manager@example.com', 1),
+    (2, N'client', 2, N'client', N'client@example.com', 2),
+    (3, N'Иванов Максим Иванович', 2, N'12345', N'ivan@yа.ru', 1),
+    (4, N'Смирнов Игорь Андреевич', 1, N'12345', N'smirnov@ya.ru', 1);
 SET IDENTITY_INSERT [dbo].[Users] OFF;
 GO
 
