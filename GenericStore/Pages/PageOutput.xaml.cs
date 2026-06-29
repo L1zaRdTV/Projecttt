@@ -36,7 +36,7 @@ namespace GenericStore.Pages
             ComboSort.SelectedIndex = 0;
 
             ComboFilter.DisplayMemberPath = "NameCategory";
-            ComboFilter.Items.Add(new Categories { IdCategory = 0, NameCategory = "Все категории" });
+            ComboFilter.Items.Add(new Categories { IdCategory = 0, NameCategory = "Все стили" });
             foreach (var item in AppConnect.model0db.Categories.OrderBy(x => x.NameCategory))
             {
                 ComboFilter.Items.Add(item);
@@ -51,7 +51,7 @@ namespace GenericStore.Pages
                 List<Catalogs> catalogs = AppConnect.model0db.Catalogs.ToList();
                 if (TextSearch != null)
                 {
-                    catalogs = catalogs.Where(x => x.Product.ToLower().Contains(TextSearch.Text.ToLower())).ToList();
+                    catalogs = catalogs.Where(x => x.Product.ToLower().Contains(TextSearch.Text.ToLower()) || x.Descripton.ToLower().Contains(TextSearch.Text.ToLower())).ToList();
                 }
 
                 if (ComboFilter.SelectedItem is Categories selectedCategory && selectedCategory.IdCategory > 0)
@@ -72,17 +72,17 @@ namespace GenericStore.Pages
                 }
                 if (catalogs.Count > 0)
                 {
-                    tbCounter.Text = "Найдено " + catalogs.Count + " рец.";
+                    tbCounter.Text = "Найдено комнат: " + catalogs.Count;
                 }
                 else
                 {
-                    tbCounter.Text = "Не найдено";
+                    tbCounter.Text = "Комнаты не найдены. Измените параметры поиска или фильтра.";
                 }
                 return catalogs.ToArray();
             }
             catch
             {
-                MessageBox.Show("Повтори попытку позже");
+                MessageBox.Show("Не удалось загрузить список банкетных комнат. Повторите попытку позже.", "Ошибка загрузки", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
@@ -152,7 +152,8 @@ namespace GenericStore.Pages
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.framemain.Navigate(new ProfilePage());
+            CurrentUser.User = null;
+            AppFrame.framemain.Navigate(new Authoriz());
         }
 
         private void ListProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)

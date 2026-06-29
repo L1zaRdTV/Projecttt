@@ -1,7 +1,7 @@
 <Page x:Class="GenericStore.Pages.ProductDetailsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="ProductDetailsPage" Background="#F4F4F2">
+      Title="Подробная информация о комнате" Background="#F4F4F2">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Margin="16">
             <Grid.RowDefinitions>
@@ -10,8 +10,8 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                <Button Content="← К каталогу" Width="120" Height="36" Click="BackButton_Click" Background="#F1F1F1" Foreground="#374151" BorderBrush="#CFCFCF"/>
-                <TextBlock Text="Карточка товара" Margin="18,4,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827" TextWrapping="Wrap"/>
+                <Button Content="← К комнатам" Width="120" Height="36" Click="BackButton_Click" Background="#F1F1F1" Foreground="#374151" BorderBrush="#CFCFCF"/>
+                <TextBlock Text="Подробная информация о банкетной комнате" Margin="18,4,0,0" FontSize="24" FontWeight="Bold" Foreground="#111827" TextWrapping="Wrap"/>
             </StackPanel>
 
             <Border Grid.Row="1" Background="White" BorderBrush="#E5E7EB" BorderThickness="1" Padding="24">
@@ -23,13 +23,15 @@
                     <StackPanel>
                         <TextBlock Text="{Binding Product}" FontSize="30" FontWeight="Bold" Foreground="#111827" TextWrapping="Wrap"/>
                         <Border Margin="0,14,0,18" Padding="10,6" Background="#F1F1F1" HorizontalAlignment="Left">
-                            <TextBlock Foreground="#555555" FontWeight="SemiBold" Text="{Binding Categories.NameCategory}"/>
+                            <TextBlock Foreground="#555555" FontWeight="SemiBold" Text="{Binding Categories.NameCategory, StringFormat=Стиль: {0}}"/>
                         </Border>
-                        <TextBlock Text="Описание" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
+                        <TextBlock Text="Описание комнаты" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
                         <TextBlock Text="{Binding Descripton}" Margin="0,8,0,20" FontSize="15" Foreground="#4B5563" TextWrapping="Wrap" LineHeight="22"/>
-                        <TextBlock Text="Цена" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
-                        <TextBlock Text="{Binding Price, StringFormat={}{0:N2} ₽}" Margin="0,6,0,24" FontSize="28" FontWeight="Bold" Foreground="#4B5563"/>
-                        <Button Content="Добавить в корзину" MinWidth="190" Height="42" HorizontalAlignment="Left" Click="AddToBasketButton_Click" Background="#4B5563" Foreground="White" FontWeight="SemiBold" BorderThickness="0"/>
+                        <TextBlock Text="Количество столов" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
+                        <TextBlock Text="{Binding TablesDisplay}" Margin="0,6,0,18" FontSize="18" FontWeight="SemiBold" Foreground="#4B5563"/>
+                        <TextBlock Text="Стоимость аренды" FontSize="16" FontWeight="SemiBold" Foreground="#374151"/>
+                        <TextBlock Text="{Binding Price, StringFormat={}{0:N2} ₽/час}" Margin="0,6,0,24" FontSize="28" FontWeight="Bold" Foreground="#4B5563"/>
+                        <Button Content="Вернуться к списку" MinWidth="190" Height="42" HorizontalAlignment="Left" Click="BackButton_Click" Background="#4B5563" Foreground="White" FontWeight="SemiBold" BorderThickness="0"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

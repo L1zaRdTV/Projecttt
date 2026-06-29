@@ -39,11 +39,11 @@ namespace GenericStore.Pages
         {
             if (!(ProductsGrid.SelectedItem is Catalogs selectedProduct))
             {
-                MessageBox.Show("Выберите товар для удаления");
+                MessageBox.Show("Выберите комнату для удаления");
                 return;
             }
 
-            var result = MessageBox.Show("Удалить выбранный товар?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Удалить выбранную комнату?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result != MessageBoxResult.Yes) return;
 
             try
@@ -54,12 +54,12 @@ namespace GenericStore.Pages
             }
             catch (DbUpdateException ex)
             {
-                MessageBox.Show("Не удалось удалить товар. Возможно, он уже есть в заказах или корзинах. Подробности: " + ex.GetBaseException().Message,
+                MessageBox.Show("Не удалось удалить комнату. Возможно, она используется в бронированиях. Подробности: " + ex.GetBaseException().Message,
                     "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось удалить товар: " + ex.GetBaseException().Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не удалось удалить комнату: " + ex.GetBaseException().Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -3,24 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="760" Title="ProductsAdminPage">
+      mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="760" Title="Управление комнатами">
     <Grid Background="{StaticResource AppBackgroundBrush}" Margin="0">
         <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Дважды нажмите на товар, чтобы открыть окно редактирования." Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,10"/>
+        <TextBlock Grid.Row="0" Text="Дважды нажмите на комнату, чтобы открыть окно редактирования." Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,10"/>
         <DataGrid x:Name="ProductsGrid" Grid.Row="1" Margin="0,0,0,12" AutoGenerateColumns="False" IsReadOnly="True"
                   MouseDoubleClick="ProductsGrid_MouseDoubleClick" FontFamily="Segoe UI">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdCatalog}" Width="60"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Product}" Width="*"/>
-                <DataGridTextColumn Header="Категория" Binding="{Binding Categories.NameCategory}" Width="150"/>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Price, StringFormat=N2}" Width="100"/>
+                <DataGridTextColumn Header="Стиль" Binding="{Binding Categories.NameCategory}" Width="150"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price, StringFormat=N2}" Width="100"/>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Descripton}" Width="200"/>
                 <DataGridTextColumn Header="Изображение" Binding="{Binding PhotoPath}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
         <DockPanel Grid.Row="2" LastChildFill="False">
-            <Button Content="Удалить выбранный товар" Width="180" Height="34" Margin="0,0,10,0" Click="DeleteButton_Click" DockPanel.Dock="Left"/>
-            <Button Content="Добавить товар" Width="160" Height="36" Click="AddButton_Click" DockPanel.Dock="Right"/>
+            <Button Content="Удалить выбранную комнату" Width="180" Height="34" Margin="0,0,10,0" Click="DeleteButton_Click" DockPanel.Dock="Left"/>
+            <Button Content="Добавить комнату" Width="160" Height="36" Click="AddButton_Click" DockPanel.Dock="Right"/>
         </DockPanel>
     </Grid>
 </Page>
